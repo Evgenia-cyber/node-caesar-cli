@@ -3,7 +3,7 @@ const {
   ALPHABET_LENGTH,
   // ENCODE,
   DECODE,
-} = require('../constants.js');
+} = require('./constants.js');
 
 const caesarCipher = (text, shift, mode) => {
   if (mode === DECODE) {
