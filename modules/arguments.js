@@ -9,16 +9,8 @@ const {
   OUTPUT_FILE,
 } = require('./constants.js');
 
-// const args = require('minimist')(process.argv.slice(2));
 const args = process.argv.slice(2);
 const argsObj = createObjectFromArray(args);
-// console.log(argsObj);
-// {
-//    '--action': 'encode',
-//    '--shift': '-7',
-//    '--input': 'plain.txt',
-//    '--output': 'encoded.txt'
-//  }
 
 const getActionValue = () => argsObj[ACTION[0]] || argsObj[ACTION[1]];
 const getShiftValue = () => argsObj[SHIFT[0]] || argsObj[SHIFT[1]];
@@ -32,9 +24,6 @@ const shiftValueInString = getShiftValue();
 const shiftValue = Number(shiftValueInString);
 const inputFileValue = getInputFileValue();
 const outputFileValue = getOutputFileValue();
-
-// console.log(shiftValueInString);
-// console.log(shiftValue);
 
 const errorHandler = (text) => {
   process.stderr.write(text);

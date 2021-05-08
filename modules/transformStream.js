@@ -1,12 +1,8 @@
 const { Transform } = require('stream');
 const { caesarCipher } = require('./cipher.js');
 const {
-  //   argumentsValidate,
   actionValue,
   shiftValue,
-  //   inputFileValue,
-  //   outputFileValue,
-  //   errorHandler,
 } = require('./arguments');
 const { ENCODE, DECODE } = require('./constants.js');
 

@@ -1,13 +1,10 @@
 const path = require('path');
-const fs = require('fs');
-const { pipeline } = require('stream');
 const {
   argumentsValidate,
   inputFileValue,
   outputFileValue,
-  errorHandler,
 } = require('./modules/arguments');
-const { caesarCipherText } = require('./modules/transformStream');
+const { createStreams } = require('./modules/createStreams');
 
 const inputFile = inputFileValue
   ? path.resolve(__dirname, inputFileValue)
@@ -16,23 +13,8 @@ const outputFile = outputFileValue
   ? path.resolve(__dirname, outputFileValue)
   : null;
 
-// console.log(inputFile);
-// console.log(outputFile);
-// console.log(inputFileValue);
-// console.log(outputFileValue);
-
 argumentsValidate(inputFile, outputFile);
-
-readTextFrom = inputFile ? fs.createReadStream(inputFile) : process.stdin;
-writeTextTo = outputFile
-  ? fs.createWriteStream(outputFile, { flags: 'a' })
-  : process.stdout;
-
-pipeline(readTextFrom, caesarCipherText, writeTextTo, (error) => {
-  if (error) {
-    errorHandler(error);
-  }
-});
+createStreams(inputFile, outputFile);
 
 /********************************************/
 //1 checks: errors
