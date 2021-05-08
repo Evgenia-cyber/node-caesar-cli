@@ -31,7 +31,8 @@ const caesarCipher = (text, shift, mode) => {
         return char;
       }
     })
-    .join('');
+    .join('')
+    .concat('\n');
 };
 
 module.exports = {

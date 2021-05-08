@@ -16,7 +16,5 @@
     "url": "https://github.com/Evgenia-cyber/node-caesar-cli/issues"
   },
   "homepage": "https://github.com/Evgenia-cyber/node-caesar-cli#readme",
-  "dependencies": {
-    "minimist": "^1.2.5"
-  }
+  "dependencies": {}
 }

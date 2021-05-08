@@ -28,9 +28,13 @@ const getOutputFileValue = () =>
   argsObj[OUTPUT_FILE[0]] || argsObj[OUTPUT_FILE[1]];
 
 const actionValue = getActionValue();
-const shiftValue = Number(getShiftValue());
+const shiftValueInString = getShiftValue();
+const shiftValue = Number(shiftValueInString);
 const inputFileValue = getInputFileValue();
 const outputFileValue = getOutputFileValue();
+
+// console.log(shiftValueInString);
+// console.log(shiftValue);
 
 const errorHandler = (text) => {
   process.stderr.write(text);
@@ -47,7 +51,7 @@ const argumentsValidate = (inputFile, outputFile) => {
       'Required argument: --action must be equal encode or decode\n',
     );
   }
-  if (!shiftValue) {
+  if (shiftValueInString === undefined) {
     errorHandler('Not specified required argument: --shift\n');
   }
   if (!Number.isInteger(shiftValue)) {
