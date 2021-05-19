@@ -3,7 +3,7 @@
 ***
 
 ### 1. Install this application:
-  1.1. Download application from this repository
+  1.1. Clone or download application from this repository
 ***
 
 ### 2. How to use:
